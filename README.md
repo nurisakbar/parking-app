@@ -15,7 +15,8 @@ simple parking app with laravel and lumen as REST API
 3.cp .env-example .env<br>
 4.sesuikan konfigurasi database<br>
 5.php key:generate<br>
-6.php artisan serve --port=9000<br>
+6.php artisan migrate
+7.php artisan serve --port=9000<br>
 
 ## Requiretment
 1.php versi 7.4 with laravel/ lument requretment extension default<br>
