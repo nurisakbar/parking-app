@@ -19,10 +19,10 @@ simple parking app with laravel and lumen as REST API
 
 ## Requiretment
 1.php versi 7.4 with laravel/ lument requretment extension default<br>
-2.database Mysql/ Mariadb
+2.database Mysql/ Mariadb<br>
 
 ## Todo
-1.membuat konfigurasi docker untuk menjalankan 2 project ini secara bersamaan dengan perintah docker compose-up.
-2.memastikan codebase laravel bisa di akses menggunakan port 8000 ( expose port ) dari luar container.
-2.memastikan codebase laravel bisa di akses menggunakan port 9000 ( expose port ) dari luar container.
-3.memastikan laravel bisa mengconsume API dari lument yang berbeda container
+1.membuat konfigurasi docker untuk menjalankan 2 project ini secara bersamaan dengan perintah docker compose-up.<br>
+2.memastikan codebase laravel bisa di akses menggunakan port 8000 ( expose port ) dari luar container.<br>
+2.memastikan codebase laravel bisa di akses menggunakan port 9000 ( expose port ) dari luar container.<br>
+3.memastikan laravel bisa mengconsume API dari lument yang berbeda container<br>
