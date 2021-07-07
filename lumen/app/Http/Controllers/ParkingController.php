@@ -72,6 +72,7 @@ class ParkingController extends Controller
         if ($request->has('registration_number')) {
             $parkingLog->where('registration_number', $request->registration_number);
         }
+        $parkingLog->where('out', null);
         return ParkingLogResource::collection($parkingLog->get());
     }
 

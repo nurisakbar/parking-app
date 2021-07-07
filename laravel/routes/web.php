@@ -18,3 +18,5 @@ use App\Http\Controllers\InterfaceController;
 Route::get('/', [InterfaceController::class,'in']);
 Route::get('/out', [InterfaceController::class,'out']);
 Route::post('/', [InterfaceController::class,'inAction']);
+Route::get('/search', [InterfaceController::class,'search']);
+Route::get('/list', [InterfaceController::class,'list']);
