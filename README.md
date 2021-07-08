@@ -1,6 +1,11 @@
 # Simple parking app
 simple parking app with laravel and lumen as REST API
 
+# Simple Running dengan docker
+docker-compose up -d
+
+lalu silahkan akses http://localhost:9090/ untuk REST API dan http://localhost:8000/ untuk client ( frontend yang mengconsume API ).
+
 ## Install Laravel As Client/ Frontend / Interface<br>
 1.cd laravel<br>
 2.composer install<br>
