@@ -36,7 +36,7 @@
                 </div>
                 {!! Form::close() !!}
             </div>
-            <div class="col-md-12">
+            {{-- <div class="col-md-12">
               <div class="row">
                 @foreach($parkingSlots as $slot)
                 <div class="col-md-3" style="margin-bottom: 10px;">
@@ -48,7 +48,7 @@
                 </div>
                 @endforeach
               </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </main>

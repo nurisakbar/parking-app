@@ -8,55 +8,10 @@ use App\Models\ParkingLog;
 use App\Http\Requests\ParkingInRequest;
 use App\Http\Requests\ParkingOutRequest;
 use App\Http\Resources\ParkingLogResource;
-use App\Http\Requests\testRequest;
+use App\Http\Resources\ParkingSlotResouce;
 
 class ParkingController extends Controller
 {
-
-    /**
-     * @OA\Info(
-     *   title="Example API",
-     *   version="1.0",
-     *   @OA\Contact(
-     *     email="support@example.com",
-     *     name="Support Team"
-     *   )
-     * )
-     */
-
-
-
-    /**
-     * @OA\Get(
-     *     path="/sample/{category}/things",
-     *     operationId="/sample/category/things",
-     *     tags={"yourtag"},
-     *     @OA\Parameter(
-     *         name="category",
-     *         in="path",
-     *         description="The category parameter in path",
-     *         required=true,
-     *         @OA\Schema(type="string")
-     *     ),
-     *     @OA\Parameter(
-     *         name="criteria",
-     *         in="query",
-     *         description="Some optional other parameter",
-     *         required=false,
-     *         @OA\Schema(type="string")
-     *     ),
-     *     @OA\Response(
-     *         response="200",
-     *         description="Returns some sample category things",
-     *         @OA\JsonContent()
-     *     ),
-     *     @OA\Response(
-     *         response="400",
-     *         description="Error: Bad request. When required parameters were not supplied.",
-     *     ),
-     * )
-     */
-    
     /**
      * Display a listing of the resource.
      *
@@ -73,7 +28,10 @@ class ParkingController extends Controller
             $parkingLog->where('registration_number', $request->registration_number);
         }
         $parkingLog->where('out', null);
-        return ParkingLogResource::collection($parkingLog->get());
+        return response()->json([
+            'message'   =>  'List Parkir',
+            'data'      =>  ParkingLogResource::collection($parkingLog->get())
+        ]);
     }
 
     /**
@@ -146,9 +104,11 @@ class ParkingController extends Controller
     }
 
 
-    public function slot()
+    public function slot(Request $request)
     {
-        $parkingSlot = ParkingSlot::all();
-        return $parkingSlot;
+        return response()->json([
+            'message'   =>  'List Slot',
+            'data'      =>  ParkingSlotResouce::collection(ParkingSlot::all())
+        ]);
     }
 }

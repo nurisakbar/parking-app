@@ -19,7 +19,8 @@ class InterfaceController extends Controller
     public function in()
     {
         $data['colors']         = $this->colors;
-        $data['parkingSlots']    = json_decode(Http::get($this->apiHost.'/parking/slot'));
+        // $data['parkingSlots']    = json_decode(Http::get($this->apiHost.'/parking/slot'));
+        // return $data;
         return view('in', $data);
     }
 
