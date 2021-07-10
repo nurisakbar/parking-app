@@ -7,7 +7,6 @@ nginx-lumen:
     - "9090:80"
   volumes:
     - ./images/php/lumen:/var/www/html/lumen
-  #entrypoint: ['php', '/var/www/html/lumen']
 
 
 nginx-laravel:
@@ -17,7 +16,7 @@ nginx-laravel:
     - php
     - nginx-lumen
   ports:
-    - "8000:80"
+    - "8080:80"
   volumes:
     - ./images/php/laravel:/var/www/html/laravel
 
@@ -45,14 +44,14 @@ php:
     DB_DATABASE: ${DB_DATABASE}
     DB_USERNAME: ${DB_USERNAME}
     DB_PASSWORD: ${DB_PASSWORD}
-    #MEMCACHED_HOST: cache
-    #CACHE_DRIVER: memcached
 db:
   image: mysql:8
   command: --default-authentication-plugin=mysql_native_password # needed as of mysql 8
   ports:
-    #- "3306:3306"
     - "3307:3307"
+  volumes:
+      - ./images/mysql/init:/docker-entrypoint-initdb.d
+      - database:/var/lib/mysql
   environment:
     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -60,19 +59,3 @@ db:
     MYSQL_PASSWORD: ${MYSQL_PASSWORD}
 cache:
   image: memcached:1.6-alpine
-
-
-  # artisan:
-  #   build:
-  #     context: .
-  #     dockerfile: ./compose/php/Dockerfile
-  #   container_name: artisan
-  #   volumes:
-  #     - ./laravel:/var/www/html:delegated
-  #   depends_on:
-  #     - mysql
-  #   working_dir: /var/www/html
-  #   user: laravel
-  #   entrypoint: ['php', '/var/www/html/artisan']
-  #   networks:
-  #     - laravel
