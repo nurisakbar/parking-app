@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8e877e11-fac2-4173-a907-72d2d13429ea",
+		"_postman_id": "46d6db73-8e0e-46d8-b193-38dcc1a66c8b",
 		"name": "Parking System",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -16,23 +16,25 @@
 						{
 							"key": "car_color",
 							"value": "red",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "license_plate_number",
 							"value": "BL001",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost:8000/parking",
+					"raw": "{{base_url}}/parking/in",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
-					"port": "8000",
 					"path": [
-						"parking"
+						"parking",
+						"in"
 					]
 				}
 			},
@@ -54,11 +56,10 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:8000/parking/out",
+					"raw": "{{base_url}}/parking/out",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
-					"port": "8000",
 					"path": [
 						"parking",
 						"out"
@@ -73,11 +74,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8000/parking/list?registration_number=RG20210701001",
+					"raw": "{{base_url}}/parking/list?car_color=red",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
-					"port": "8000",
 					"path": [
 						"parking",
 						"list"
@@ -85,12 +85,12 @@
 					"query": [
 						{
 							"key": "car_color",
-							"value": "red",
-							"disabled": true
+							"value": "red"
 						},
 						{
 							"key": "registration_number",
-							"value": "RG20210701001"
+							"value": "RG20210701002",
+							"disabled": true
 						}
 					]
 				}
@@ -115,6 +115,32 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:9090"
 		}
 	]
 }

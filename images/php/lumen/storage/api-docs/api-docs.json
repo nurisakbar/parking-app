@@ -1,54 +1,126 @@
 {
-    "openapi": "3.0.0",
-    "info": {
-        "title": "Example API",
-        "contact": {
-            "name": "Support Team",
-            "email": "support@example.com"
-        },
-        "version": "1.0"
-    },
-    "paths": {
-        "/sample/{category}/things": {
-            "get": {
-                "tags": [
-                    "yourtag"
-                ],
-                "operationId": "/sample/category/things",
-                "parameters": [
-                    {
-                        "name": "category",
-                        "in": "path",
-                        "description": "The category parameter in path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "criteria",
-                        "in": "query",
-                        "description": "Some optional other parameter",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Returns some sample category things",
-                        "content": {
-                            "application/json": {
-                                "schema": {}
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Error: Bad request. When required parameters were not supplied."
-                    }
-                }
-            }
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Parking System",
+    "contact": {}
+  },
+  "host": "localhost:9090",
+  "basePath": "/parking",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/in": {
+      "post": {
+        "summary": "Parking In",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ParkingIn",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
         }
+      }
+    },
+    "/out": {
+      "put": {
+        "summary": "Parking Out",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ParkingOut",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "registration_number",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/list": {
+      "get": {
+        "summary": "Parking List",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ParkingList",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "car_color",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/slot": {
+      "get": {
+        "summary": "Get Slot Info",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "GetSlotInfo",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
     }
+  },
+  "tags": [
+    {
+      "name": "Misc",
+      "description": ""
+    }
+  ]
 }
