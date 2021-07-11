@@ -3,8 +3,9 @@ simple parking app with laravel and lumen as REST API
 
 # Simple Running dengan docker
 1.git clone https://github.com/nurisakbar/parking-app.git<br>
-2.cd parking-app<br>
-3.docker-compose up -d build<br>
+2.cd parking-app/images/php/laravel && composer install && php artisan key:generate
+3.cd parking-app/images/php/lumen && composer install && php artisan key:generate
+4.cd parking-app && docker-compose up -d build<br>
 
 
 
