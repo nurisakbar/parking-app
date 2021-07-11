@@ -9,8 +9,6 @@ services:
       - "9090:80"
     volumes:
       - ./images/php/lumen:/var/www/html/lumen
-    # networks:
-    #   - laravel
 
   nginx-laravel:
     build: images/nginx-laravel
@@ -22,8 +20,6 @@ services:
       - "8080:80"
     volumes:
       - ./images/php/laravel:/var/www/html/laravel
-    # networks:
-    #   - laravel
 
   php:
     build: images/php
@@ -49,8 +45,6 @@ services:
       DB_DATABASE: ${DB_DATABASE}
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
-    # networks:
-    #   - laravel
 
   db:
     image: mysql:8
@@ -59,14 +53,11 @@ services:
       - "3307:3307"
     volumes:
         - ./images/mysql/init:/docker-entrypoint-initdb.d
-        #- database:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USERNAME}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    # networks:
-    #   - laravel
     
   cache:
     image: memcached:1.6-alpine
