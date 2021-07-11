@@ -14,7 +14,7 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return redirect('api/documentation');
 });
 
 $router->get('parking/list', 'ParkingController@list');
